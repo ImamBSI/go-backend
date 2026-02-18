@@ -1,6 +1,6 @@
 package services
 
-import "example.com/trial-go/app/models"
+import "example.com/trial-go/models"
 
 // FilterRawEnergy menyaring data berdasarkan tahun dan category
 func FilterRawEnergy(data []models.EnergyItem, year string, category string) []map[string]interface{} {

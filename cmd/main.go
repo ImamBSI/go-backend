@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"example.com/trial-go/app/handlers"
-	"example.com/trial-go/app/models"
+	"example.com/trial-go/handlers"
+	"example.com/trial-go/models"
 	"github.com/gofiber/fiber/v2"
 )
 

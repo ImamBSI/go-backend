@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"example.com/trial-go/app/models"
+	"example.com/trial-go/models"
 	"github.com/gofiber/fiber/v2"
 )
 
