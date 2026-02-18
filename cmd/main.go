@@ -7,6 +7,7 @@ import (
 
 	"example.com/trial-go/internal/energy"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
 func main() {
@@ -26,6 +27,7 @@ func main() {
 	handler := energy.NewHandler(service)
 
 	app := fiber.New()
+	app.Use(logger.New())
 
 	api := app.Group("/go-be")
 
