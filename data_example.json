@@ -1,0 +1,486 @@
+{
+  "data": [
+    {
+      "month": "01",
+      "values": {
+        "electricity": 2480906.683,
+        "indexEnergy": 1.5922379873358303,
+        "naturalGas": 8783.3809,
+        "productKl": 12222.489360000001
+      },
+      "year": "2022"
+    },
+    {
+      "month": "02",
+      "values": {
+        "electricity": 2684921.6520000002,
+        "indexEnergy": 1.3025150865572959,
+        "naturalGas": 8657.17,
+        "productKl": 15370.63728
+      },
+      "year": "2022"
+    },
+    {
+      "month": "03",
+      "values": {
+        "electricity": 3194134.286,
+        "indexEnergy": 1.1588523772561763,
+        "naturalGas": 9732.0984,
+        "productKl": 19984.207200000004
+      },
+      "year": "2022"
+    },
+    {
+      "month": "04",
+      "values": {
+        "electricity": 3130136.388,
+        "indexEnergy": 1.1030163669099928,
+        "naturalGas": 9423.2602,
+        "productKl": 20490.31944
+      },
+      "year": "2022"
+    },
+    {
+      "month": "05",
+      "values": {
+        "electricity": 2444781.1,
+        "indexEnergy": 1.315104317945797,
+        "naturalGas": 5900.9665,
+        "productKl": 12083.73552
+      },
+      "year": "2022"
+    },
+    {
+      "month": "06",
+      "values": {
+        "electricity": 1963455.598,
+        "indexEnergy": 1.5966523546544427,
+        "naturalGas": 5577.9674,
+        "productKl": 8637.38544
+      },
+      "year": "2022"
+    },
+    {
+      "month": "07",
+      "values": {
+        "electricity": 2599659.1819999996,
+        "indexEnergy": 1.416827328240251,
+        "naturalGas": 6595.6925,
+        "productKl": 12216.582240000002
+      },
+      "year": "2022"
+    },
+    {
+      "month": "08",
+      "values": {
+        "electricity": 2493398.976,
+        "indexEnergy": 1.4686686604365147,
+        "naturalGas": 7138.038000000001,
+        "productKl": 11972.189279999999
+      },
+      "year": "2022"
+    },
+    {
+      "month": "09",
+      "values": {
+        "electricity": 2345680.5830000006,
+        "indexEnergy": 1.7369409240112643,
+        "naturalGas": 6972.6041,
+        "productKl": 9698.92224
+      },
+      "year": "2022"
+    },
+    {
+      "month": "10",
+      "values": {
+        "electricity": 2827060.1810000003,
+        "indexEnergy": 1.4146588990346676,
+        "naturalGas": 7301.3754,
+        "productKl": 13424.397360000003
+      },
+      "year": "2022"
+    },
+    {
+      "month": "11",
+      "values": {
+        "electricity": 2003366.1880000003,
+        "indexEnergy": 2.1908554056931533,
+        "naturalGas": 5893.023099999999,
+        "productKl": 6557.36184
+      },
+      "year": "2022"
+    },
+    {
+      "month": "12",
+      "values": {
+        "electricity": 2567350.8419999997,
+        "indexEnergy": 1.6201429045107225,
+        "naturalGas": 7418.4098,
+        "productKl": 11235.54048
+      },
+      "year": "2022"
+    },
+    {
+      "month": "01",
+      "values": {
+        "electricity": 2615472.0000000005,
+        "indexEnergy": 1.4881741039010703,
+        "naturalGas": 8061.559599999999,
+        "productKl": 12842.016240000004
+      },
+      "year": "2023"
+    },
+    {
+      "month": "02",
+      "values": {
+        "electricity": 2637568.0,
+        "indexEnergy": 1.2779759497100363,
+        "naturalGas": 7504.9616,
+        "productKl": 14508.372000000001
+      },
+      "year": "2023"
+    },
+    {
+      "month": "03",
+      "values": {
+        "electricity": 2616816.0,
+        "indexEnergy": 1.4353880488079989,
+        "naturalGas": 165.47,
+        "productKl": 13628.2908
+      },
+      "year": "2023"
+    },
+    {
+      "month": "04",
+      "values": {
+        "electricity": 2147632.0000000005,
+        "indexEnergy": 1.308966689595714,
+        "naturalGas": 2064.805,
+        "productKl": 9971.28216
+      },
+      "year": "2023"
+    },
+    {
+      "month": "05",
+      "values": {
+        "electricity": 3082928.0,
+        "indexEnergy": 1.11536462590901,
+        "naturalGas": 3964.14,
+        "productKl": 18029.66064
+      },
+      "year": "2023"
+    },
+    {
+      "month": "06",
+      "values": {
+        "electricity": 2590016.0,
+        "indexEnergy": 1.5107949999215278,
+        "naturalGas": 6681.15,
+        "productKl": 11479.21824
+      },
+      "year": "2023"
+    },
+    {
+      "month": "07",
+      "values": {
+        "electricity": 2763311.9999999995,
+        "indexEnergy": 1.133905353627374,
+        "naturalGas": 6734.193400000002,
+        "productKl": 15902.914799999999
+      },
+      "year": "2023"
+    },
+    {
+      "month": "08",
+      "values": {
+        "electricity": 2863007.9999999995,
+        "indexEnergy": 1.137778521838724,
+        "naturalGas": 7625.7027,
+        "productKl": 17163.57072
+      },
+      "year": "2023"
+    },
+    {
+      "month": "09",
+      "values": {
+        "electricity": 2557584.0,
+        "indexEnergy": 1.2148562604383077,
+        "naturalGas": 6959.6116,
+        "productKl": 14496.02808
+      },
+      "year": "2023"
+    },
+    {
+      "month": "10",
+      "values": {
+        "electricity": 2883391.9999999995,
+        "indexEnergy": 1.2057627649962546,
+        "naturalGas": 8328.951200000001,
+        "productKl": 16736.044080000003
+      },
+      "year": "2023"
+    },
+    {
+      "month": "11",
+      "values": {
+        "electricity": 1739728.0,
+        "indexEnergy": 3.605585583640703,
+        "naturalGas": 5707.77,
+        "productKl": 3657.5536799999995
+      },
+      "year": "2023"
+    },
+    {
+      "month": "12",
+      "values": {
+        "electricity": 2641168.0,
+        "indexEnergy": 1.2905525152711284,
+        "naturalGas": 6258.24,
+        "productKl": 13574.12472
+      },
+      "year": "2023"
+    },
+    {
+      "month": "01",
+      "values": {
+        "electricity": 2492041.803,
+        "indexEnergy": 1.4569498329615633,
+        "naturalGas": 7734.0611,
+        "productKl": 12478.04424
+      },
+      "year": "2024"
+    },
+    {
+      "month": "02",
+      "values": {
+        "electricity": 2641652.3889999995,
+        "indexEnergy": 1.2124184321696816,
+        "naturalGas": 7953.2067,
+        "productKl": 15635.21544
+      },
+      "year": "2024"
+    },
+    {
+      "month": "03",
+      "values": {
+        "electricity": 2732985.902,
+        "indexEnergy": 1.3082074109560793,
+        "naturalGas": 8983.831499999998,
+        "productKl": 15654.80928
+      },
+      "year": "2024"
+    },
+    {
+      "month": "04",
+      "values": {
+        "electricity": 2256010.252,
+        "indexEnergy": 1.1920427986105975,
+        "naturalGas": 6106.8261,
+        "productKl": 12961.70208
+      },
+      "year": "2024"
+    },
+    {
+      "month": "05",
+      "values": {
+        "electricity": 3027873.095,
+        "indexEnergy": 1.200175278618317,
+        "naturalGas": 8808.9205,
+        "productKl": 17800.322879999996
+      },
+      "year": "2024"
+    },
+    {
+      "month": "06",
+      "values": {
+        "electricity": 2378708.903,
+        "indexEnergy": 1.923997580343455,
+        "naturalGas": 8583.378499999999,
+        "productKl": 9725.347200000002
+      },
+      "year": "2024"
+    },
+    {
+      "month": "07",
+      "values": {
+        "electricity": 3278462.42,
+        "indexEnergy": 1.172517200236589,
+        "naturalGas": 10627.7768,
+        "productKl": 20868.85248
+      },
+      "year": "2024"
+    },
+    {
+      "month": "08",
+      "values": {
+        "electricity": 3111656.391,
+        "indexEnergy": 1.4165299842916073,
+        "naturalGas": 10621.052599999995,
+        "productKl": 16810.122
+      },
+      "year": "2024"
+    },
+    {
+      "month": "09",
+      "values": {
+        "electricity": 2951565.8000000003,
+        "indexEnergy": 1.3836833636159038,
+        "naturalGas": 10074.645,
+        "productKl": 16287.785040000002
+      },
+      "year": "2024"
+    },
+    {
+      "month": "10",
+      "values": {
+        "electricity": 3270760.891,
+        "indexEnergy": 1.2704957976761178,
+        "naturalGas": 9375.2468,
+        "productKl": 17902.323119999997
+      },
+      "year": "2024"
+    },
+    {
+      "month": "11",
+      "values": {
+        "electricity": 2377108.717,
+        "indexEnergy": 2.0377511033851614,
+        "naturalGas": 8889.8124,
+        "productKl": 9436.596
+      },
+      "year": "2024"
+    },
+    {
+      "month": "12",
+      "values": {
+        "electricity": 3204240.0630000005,
+        "indexEnergy": 1.2590316335567302,
+        "naturalGas": 11877.7725,
+        "productKl": 20305.529519999996
+      },
+      "year": "2024"
+    },
+    {
+      "month": "01",
+      "values": {
+        "electricity": 2989605.989,
+        "indexEnergy": 1.3761623417333964,
+        "naturalGas": 12058.8585,
+        "productKl": 18166.2456
+      },
+      "year": "2025"
+    },
+    {
+      "month": "02",
+      "values": {
+        "electricity": 2768074.2739999993,
+        "indexEnergy": 1.3862820046821747,
+        "naturalGas": 9598.711199999998,
+        "productKl": 15541.80408
+      },
+      "year": "2025"
+    },
+    {
+      "month": "03",
+      "values": {
+        "electricity": 2897595.6750000003,
+        "indexEnergy": 1.332595566637027,
+        "naturalGas": 9808.2844,
+        "productKl": 16551.73656
+      },
+      "year": "2025"
+    },
+    {
+      "month": "04",
+      "values": {
+        "electricity": 2447693.231,
+        "indexEnergy": 1.5362677706901005,
+        "naturalGas": 8514.198799999998,
+        "productKl": 12243.334320000002
+      },
+      "year": "2025"
+    },
+    {
+      "month": "05",
+      "values": {
+        "electricity": 2686019.3049999997,
+        "indexEnergy": 1.5843777031985513,
+        "naturalGas": 9208.6201,
+        "productKl": 12990.999119999999
+      },
+      "year": "2025"
+    },
+    {
+      "month": "06",
+      "values": {
+        "electricity": 2475952.426,
+        "indexEnergy": 1.860273403035287,
+        "naturalGas": 8599.5408,
+        "productKl": 10340.92104
+      },
+      "year": "2025"
+    },
+    {
+      "month": "07",
+      "values": {
+        "electricity": 2808076.7129999995,
+        "indexEnergy": 1.2590352221476981,
+        "naturalGas": 9051.1452,
+        "productKl": 16564.482239999998
+      },
+      "year": "2025"
+    },
+    {
+      "month": "08",
+      "values": {
+        "electricity": 2790703.155,
+        "indexEnergy": 1.2550421896568733,
+        "naturalGas": 9199.164900000002,
+        "productKl": 16638.49512
+      },
+      "year": "2025"
+    },
+    {
+      "month": "09",
+      "values": {
+        "electricity": 3149711.403,
+        "indexEnergy": 1.02568291461655,
+        "naturalGas": 8385.5233,
+        "productKl": 20619.60816
+      },
+      "year": "2025"
+    },
+    {
+      "month": "10",
+      "values": {
+        "electricity": 3013171.505,
+        "indexEnergy": 1.2424157488883385,
+        "naturalGas": 8083.817199999999,
+        "productKl": 16436.69232
+      },
+      "year": "2025"
+    },
+    {
+      "month": "11",
+      "values": {
+        "electricity": 3262604.227,
+        "indexEnergy": 1.1387557013318845,
+        "naturalGas": 9861.196099999996,
+        "productKl": 20425.22736
+      },
+      "year": "2025"
+    },
+    {
+      "month": "12",
+      "values": {
+        "electricity": 2706047.5070000007,
+        "indexEnergy": 1.439011866182597,
+        "naturalGas": 9020.050600000002,
+        "productKl": 14156.44152
+      },
+      "year": "2025"
+    }
+  ],
+  "status": "success",
+  "year": null
+}
