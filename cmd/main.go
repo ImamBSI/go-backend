@@ -5,8 +5,6 @@ import (
 	"log"
 	"os"
 
-	"example.com/trial-go/internal/auth"
-	"example.com/trial-go/internal/db"
 	"example.com/trial-go/internal/energy"
 
 	"github.com/gofiber/fiber/v2"
@@ -33,14 +31,6 @@ func main() {
 	energyService := energy.NewService(response.Data)
 	energyHandler := energy.NewHandler(energyService)
 
-	// DB
-	database := db.NewConnection()
-
-	// Auth setup
-	authRepo := auth.NewRepository(database)
-	authService := auth.NewService(authRepo)
-	authHandler := auth.NewHandler(authService)
-
 	app := fiber.New()
 	app.Use(logger.New())
 
@@ -49,10 +39,6 @@ func main() {
 	// Energy routes
 	api.Get("/raw-energy", energyHandler.GetRawEnergy)
 	api.Get("/sum-energy", energyHandler.GetSumEnergy)
-
-	// Auth routes
-	api.Post("/register", authHandler.Register)
-	api.Post("/login", authHandler.Login)
 
 	log.Fatal(app.Listen(":3000"))
 }
