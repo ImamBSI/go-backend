@@ -14,11 +14,11 @@ type RegisterRequest struct {
 }
 
 type Repository struct {
-	db *gorm.DB
+	Db *gorm.DB
 }
 
 type Handler struct {
-	repo *Repository
+	Repo *Repository
 }
 
 func (h *Handler) Register(c *fiber.Ctx) error {
@@ -32,13 +32,13 @@ func (h *Handler) Register(c *fiber.Ctx) error {
 
 	// Cek username sudah ada
 	var existing Account
-	if err := h.repo.db.Where("username = ?", req.Username).First(&existing).Error; err == nil {
+	if err := h.Repo.Db.Where("username = ?", req.Username).First(&existing).Error; err == nil {
 		return c.Status(fiber.StatusConflict).JSON(fiber.Map{"error": "username already exists"})
 	}
 
 	// Buat user
 	user := User{Name: req.Name, Role: req.Role}
-	if err := h.repo.db.Create(&user).Error; err != nil {
+	if err := h.Repo.Db.Create(&user).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "failed to create user"})
 	}
 
@@ -54,7 +54,7 @@ func (h *Handler) Register(c *fiber.Ctx) error {
 		Password: hashed,
 		UserID:   user.ID,
 	}
-	if err := h.repo.db.Create(&account).Error; err != nil {
+	if err := h.Repo.Db.Create(&account).Error; err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "failed to create account"})
 	}
 
