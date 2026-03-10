@@ -48,7 +48,8 @@ func main() {
 	// REGISTER MODULE INIT
 	// =========================
 	registerRepo := &register.Repository{Db: db}
-	registerHandler := &register.Handler{Repo: registerRepo}
+	registerService := &register.Service{Repo: registerRepo}
+	registerHandler := &register.Handler{Service: registerService}
 
 	// =========================
 	// ENERGY MOCK (existing)
