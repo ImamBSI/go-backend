@@ -2,11 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 
+	register "example.com/trial-go/internal/auth"
 	"example.com/trial-go/internal/energy"
-	"example.com/trial-go/internal/register"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -24,7 +25,15 @@ func main() {
 	// =========================
 	// DATABASE CONNECTION
 	// =========================
-	dsn := os.Getenv("DB_DSN")
+	username := os.Getenv("MYSQL_DB_USERNAME")
+	password := os.Getenv("MYSQL_DB_PASSWORD")
+	host := os.Getenv("MYSQL_DB_HOST")
+	port := os.Getenv("MYSQL_DB_PORT")
+	dbname := os.Getenv("MYSQL_DB_NAME")
+
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		username, password, host, port, dbname,
+	)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Failed to connect database:", err)
@@ -71,6 +80,9 @@ func main() {
 
 	// Register route
 	api.Post("/register", registerHandler.Register)
+
+	// Login route
+	api.Post("/login", registerHandler.Login)
 
 	log.Fatal(app.Listen(":3000"))
 }

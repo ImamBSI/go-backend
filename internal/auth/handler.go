@@ -21,6 +21,36 @@ type Handler struct {
 	Repo *Repository
 }
 
+func (h *Handler) Login(c *fiber.Ctx) error {
+	type LoginRequest struct {
+		Username string `json:"username"`
+		Password string `json:"password"`
+	}
+
+	var req LoginRequest
+	if err := c.BodyParser(&req); err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "invalid request"})
+	}
+	if req.Username == "" || req.Password == "" {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{"error": "username and password required"})
+	}
+
+	var account Account
+	if err := h.Repo.Db.Preload("User").Where("username = ?", req.Username).First(&account).Error; err != nil {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "invalid username or password"})
+	}
+
+	if err := bcrypt.CompareHashAndPassword([]byte(account.Password), []byte(req.Password)); err != nil {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "invalid username or password"})
+	}
+
+	return c.JSON(fiber.Map{
+		"message": "login successful",
+		"user":    account.User,
+		"role":    account.User.Role,
+	})
+}
+
 func (h *Handler) Register(c *fiber.Ctx) error {
 	var req RegisterRequest
 	if err := c.BodyParser(&req); err != nil {
