@@ -1,4 +1,4 @@
-package register
+package auth
 
 import (
 	"gorm.io/gorm"
@@ -30,4 +30,25 @@ func (r *Repository) CreateUser(user *User) error {
 
 func (r *Repository) CreateAccount(account *Account) error {
 	return r.Db.Create(account).Error
+}
+
+func (r *Repository) GetUsers() ([]User, error) {
+	var users []User
+
+	err := r.Db.Find(&users).Error
+	if err != nil {
+		return nil, err
+	}
+
+	return users, nil
+}
+
+func (r *Repository) DeleteUser(id uint) error {
+
+	err := r.Db.Delete(&User{}, id).Error
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

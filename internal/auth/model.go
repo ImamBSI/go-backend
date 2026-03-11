@@ -1,4 +1,4 @@
-package register
+package auth
 
 type User struct {
 	ID   uint   `gorm:"primaryKey"`

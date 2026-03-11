@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	register "example.com/trial-go/internal/auth"
+	auth "example.com/trial-go/internal/auth"
 	"example.com/trial-go/internal/energy"
 
 	"github.com/gofiber/fiber/v2"
@@ -40,16 +40,16 @@ func main() {
 	}
 
 	// Auto migrate
-	if err := db.AutoMigrate(&register.User{}, &register.Account{}); err != nil {
+	if err := db.AutoMigrate(&auth.User{}, &auth.Account{}); err != nil {
 		log.Fatal("Failed to migrate:", err)
 	}
 
 	// =========================
-	// REGISTER MODULE INIT
+	// AUTH MODULE INIT
 	// =========================
-	registerRepo := &register.Repository{Db: db}
-	registerService := &register.Service{Repo: registerRepo}
-	registerHandler := &register.Handler{Service: registerService}
+	authRepo := &auth.Repository{Db: db}
+	authService := &auth.Service{Repo: authRepo}
+	authHandler := &auth.Handler{Service: authService}
 
 	// =========================
 	// ENERGY MOCK (existing)
@@ -79,11 +79,11 @@ func main() {
 	api.Get("/raw-energy", energyHandler.GetRawEnergy)
 	api.Get("/sum-energy", energyHandler.GetSumEnergy)
 
-	// Register route
-	api.Post("/register", registerHandler.Register)
-
-	// Login route
-	api.Post("/login", registerHandler.Login)
+	// Auth routes
+	api.Post("/register", authHandler.Register)
+	api.Post("/login", authHandler.Login)
+	api.Get("/users", authHandler.GetUsers)
+	api.Delete("/users/:id", authHandler.DeleteUser)
 
 	log.Fatal(app.Listen(":3000"))
 }

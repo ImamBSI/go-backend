@@ -1,4 +1,4 @@
-package register
+package auth
 
 import (
 	"example.com/trial-go/internal/middleware"
@@ -68,6 +68,26 @@ func (s *Service) Register(req RegisterRequest) (map[string]interface{}, error) 
 		return nil, ErrInternal("failed to create account")
 	}
 	return map[string]interface{}{"message": "user registered"}, nil
+}
+
+func (s *Service) GetUsers() ([]User, error) {
+
+	users, err := s.Repo.GetUsers()
+	if err != nil {
+		return nil, err
+	}
+
+	return users, nil
+}
+
+func (s *Service) DeleteUser(id uint) error {
+
+	err := s.Repo.DeleteUser(id)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func HashPassword(password string) (string, error) {
