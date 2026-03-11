@@ -32,15 +32,25 @@ func (r *Repository) CreateAccount(account *Account) error {
 	return r.Db.Create(account).Error
 }
 
-func (r *Repository) GetUsers() ([]User, error) {
-	var users []User
+func (r *Repository) GetUsers(page int, limit int) ([]User, int64, error) {
 
-	err := r.Db.Find(&users).Error
-	if err != nil {
-		return nil, err
+	var users []User
+	var total int64
+
+	offset := (page - 1) * limit
+
+	if err := r.Db.Model(&User{}).Count(&total).Error; err != nil {
+		return nil, 0, err
 	}
 
-	return users, nil
+	if err := r.Db.
+		Limit(limit).
+		Offset(offset).
+		Find(&users).Error; err != nil {
+		return nil, 0, err
+	}
+
+	return users, total, nil
 }
 
 func (r *Repository) DeleteUser(id uint) error {

@@ -34,13 +34,17 @@ func (h *Handler) Register(c *fiber.Ctx) error {
 
 func (h *Handler) GetUsers(c *fiber.Ctx) error {
 
-	users, err := h.Service.GetUsers()
+	page := c.QueryInt("page", 1)
+	limit := c.QueryInt("limit", 10)
+
+	result, err := h.Service.GetUsers(page, limit)
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).
-			JSON(fiber.Map{"error": "failed to fetch users"})
+		return c.Status(500).JSON(fiber.Map{
+			"error": "failed to fetch users",
+		})
 	}
 
-	return c.JSON(users)
+	return c.JSON(result)
 }
 
 func (h *Handler) DeleteUser(c *fiber.Ctx) error {

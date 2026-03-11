@@ -21,6 +21,18 @@ type RegisterRequest struct {
 	Password string `json:"password"`
 }
 
+type UserListResponse struct {
+	Data []User `json:"data"`
+	Meta Meta   `json:"meta"`
+}
+
+type Meta struct {
+	Page       int   `json:"page"`
+	Limit      int   `json:"limit"`
+	Total      int64 `json:"total"`
+	TotalPages int   `json:"total_pages"`
+}
+
 func (s *Service) Login(req LoginRequest) (map[string]interface{}, error) {
 	if req.Username == "" || req.Password == "" {
 		return nil, ErrBadRequest("username and password required")
@@ -70,14 +82,27 @@ func (s *Service) Register(req RegisterRequest) (map[string]interface{}, error) 
 	return map[string]interface{}{"message": "user registered"}, nil
 }
 
-func (s *Service) GetUsers() ([]User, error) {
+func (s *Service) GetUsers(page int, limit int) (*UserListResponse, error) {
 
-	users, err := s.Repo.GetUsers()
+	users, total, err := s.Repo.GetUsers(page, limit)
 	if err != nil {
 		return nil, err
 	}
 
-	return users, nil
+	totalPages := int(total) / limit
+	if int(total)%limit != 0 {
+		totalPages++
+	}
+
+	return &UserListResponse{
+		Data: users,
+		Meta: Meta{
+			Page:       page,
+			Limit:      limit,
+			Total:      total,
+			TotalPages: totalPages,
+		},
+	}, nil
 }
 
 func (s *Service) DeleteUser(id uint) error {
