@@ -8,6 +8,7 @@ import (
 
 	auth "example.com/trial-go/internal/auth"
 	"example.com/trial-go/internal/energy"
+	"example.com/trial-go/internal/middleware"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -82,8 +83,8 @@ func main() {
 	// Auth routes
 	api.Post("/register", authHandler.Register)
 	api.Post("/login", authHandler.Login)
-	api.Get("/users", authHandler.GetUsers)
-	api.Delete("/users/:id", authHandler.DeleteUser)
+	api.Get("/users", middleware.JWTProtected(), middleware.RequireRole("admin"), authHandler.GetUsers)
+	api.Delete("/users/:id", middleware.JWTProtected(), middleware.RequireRole("admin"), authHandler.DeleteUser)
 
 	log.Fatal(app.Listen(":3000"))
 }
