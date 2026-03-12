@@ -105,6 +105,16 @@ func (s *Service) GetUsers(page int, limit int) (*UserListResponse, error) {
 	}, nil
 }
 
+func (s *Service) GetCurrentUser(userID uint) (*User, error) {
+
+	user, err := s.Repo.GetUserByID(userID)
+	if err != nil {
+		return nil, err
+	}
+
+	return user, nil
+}
+
 func (s *Service) DeleteUser(id uint) error {
 
 	err := s.Repo.DeleteUser(id)

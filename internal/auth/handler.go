@@ -47,6 +47,25 @@ func (h *Handler) GetUsers(c *fiber.Ctx) error {
 	return c.JSON(result)
 }
 
+func (h *Handler) Me(c *fiber.Ctx) error {
+
+	userID, ok := c.Locals("user_id").(float64)
+	if !ok {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+			"error": "invalid token",
+		})
+	}
+
+	user, err := h.Service.GetCurrentUser(uint(userID))
+	if err != nil {
+		return c.Status(404).JSON(fiber.Map{
+			"error": "user not found",
+		})
+	}
+
+	return c.JSON(user)
+}
+
 func (h *Handler) DeleteUser(c *fiber.Ctx) error {
 
 	id, err := c.ParamsInt("id")

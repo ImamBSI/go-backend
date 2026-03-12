@@ -33,7 +33,6 @@ func (r *Repository) CreateAccount(account *Account) error {
 }
 
 func (r *Repository) GetUsers(page int, limit int) ([]User, int64, error) {
-
 	var users []User
 	var total int64
 
@@ -51,6 +50,17 @@ func (r *Repository) GetUsers(page int, limit int) ([]User, int64, error) {
 	}
 
 	return users, total, nil
+}
+
+func (r *Repository) GetUserByID(id uint) (*User, error) {
+
+	var user User
+
+	if err := r.Db.First(&user, id).Error; err != nil {
+		return nil, err
+	}
+
+	return &user, nil
 }
 
 func (r *Repository) DeleteUser(id uint) error {

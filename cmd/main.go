@@ -81,11 +81,13 @@ func main() {
 	api.Get("/sum-energy", energyHandler.GetSumEnergy)
 
 	// protected := api.Group("/", middleware.JWTProtected())
+	AllowedRoles := []string{"Admin", "Manager"}
 
 	// Auth routes
 	api.Post("/register", authHandler.Register)
 	api.Post("/login", authHandler.Login)
-	api.Get("/users", middleware.JWTProtected(), middleware.RequireRole("Admin"), authHandler.GetUsers)
+	api.Get("/users", middleware.JWTProtected(), middleware.RequireRole(AllowedRoles...), authHandler.GetUsers)
+	api.Get("/me", middleware.JWTProtected(), authHandler.Me)
 	api.Delete("/users/:id", middleware.JWTProtected(), middleware.RequireRole("Admin"), authHandler.DeleteUser)
 
 	log.Fatal(app.Listen(":3000"))
