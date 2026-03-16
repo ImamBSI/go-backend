@@ -1,5 +1,5 @@
-# Build stage
-FROM golang:1.21-alpine AS builder
+# ---------- BUILD STAGE ----------
+FROM golang:1.22-alpine AS builder
 
 WORKDIR /app
 
@@ -8,16 +8,21 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o main ./cmd/main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main ./cmd/main.go
 
-# Run stage
-FROM alpine:latest
+
+# ---------- RUNTIME STAGE ----------
+FROM alpine:3.20
 
 WORKDIR /app
 
+RUN adduser -D appuser
+
 COPY --from=builder /app/main .
-COPY .env .env
-COPY data_example.json data_example.json
+COPY .env .
+COPY data_example.json .
+
+USER appuser
 
 EXPOSE 3000
 
