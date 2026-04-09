@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"fmt"
 	"os"
 	"time"
 
@@ -23,11 +24,16 @@ func GenerateToken(userID uint, role string) (string, error) {
 func JWTProtected() fiber.Handler {
 	return func(c *fiber.Ctx) error {
 		authHeader := c.Get("Authorization")
-		if authHeader == "" {
-			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "missing token"})
+		if len(authHeader) < 8 || authHeader[:7] != "Bearer " {
+			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "invalid or missing token format"})
 		}
-		tokenStr := authHeader[len("Bearer "):] // expects 'Bearer <token>'
+
+		tokenStr := authHeader[7:]
+
 		token, err := jwt.Parse(tokenStr, func(token *jwt.Token) (interface{}, error) {
+			if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+				return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
+			}
 			return jwtSecret, nil
 		})
 		if err != nil || !token.Valid {
